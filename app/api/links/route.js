@@ -3,18 +3,17 @@ import dbConnect from '@/lib/db';
 import Link from '@/models/Link';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'secret123';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+// ✨ 保持逻辑一致：没有配置就用密码或固定串
+const JWT_SECRET = process.env.JWT_SECRET || ADMIN_PASSWORD || "fallback_secret_key_123456";
 
-// 🛡️ 辅助函数：验证管理员权限
 const verifyAdmin = (req) => {
   const token = req.headers.get('x-auth-token');
   if (!token) return false;
   try {
     jwt.verify(token, JWT_SECRET);
     return true;
-  } catch (e) {
-    return false;
-  }
+  } catch (e) { return false; }
 };
 
 // GET: 获取所有链接

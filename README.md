@@ -7,132 +7,117 @@
 ![Next.js](https://img.shields.io/badge/Next.js-14.0-black)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248)
 
-**一个极简、高颜值、支持拖拽排序与隐私保护的个人导航起始页。**
-**A minimalist, aesthetic personal startpage with drag-and-drop sorting.**
+**A minimalist, aesthetic personal startpage with drag-and-drop sorting & privacy features.**
 
-[查看演示 Demo](https://your-demo-link.com) · [报告 Bug](https://github.com/your-username/aurastart/issues)
+[Live Demo](https://aurastart.zeabur.app) · [Report Bug](https://github.com/cimorn/Aurastart/issues) · [🌏 README in Chinese](docs/README.zh-CN.md)
+
+![App Screenshot](public/demo.jpg)
 
 </div>
 
 ---
 
-## 📖 简介 (Intro)
+## 📖 Introduction
 
-**Aurastart** 是你数字生活的起点。
+**Aurastart** is your starting point for digital life. Built with Next.js and MongoDB, it abandons the clutter of traditional startpages in favor of a "Clean White" aesthetic and "Aura UI" design.
 
-**Aura Startpage** 是一个基于 Next.js 和 MongoDB 构建的现代化个人起始页。设计理念源于对传统浏览器主页“杂乱、广告多”的不满。
+It features multi-engine search, drag-and-drop sidebar sorting, and a unique "Invisible Admin Mode" to protect your private links.
 
-它不仅仅是一个书签列表，更是一个**个人数字仪表盘**。它采用了 iOS 风格的卡片布局，集成了多引擎搜索、实时天气日历、以及一个独特的“隐形管理员模式”。所有的分类均支持**拖拽排序**并实时同步至数据库。
+## ✨ Features
 
-![App Screenshot](public/demo.jpg)
+### 🎨 UI/UX Design
+- **Dashboard Layout**: 3-column layout featuring Time/Weather, Identity, and Daily Quotes.
+- **Minimalist Aesthetic**: Clean white style with refined shadows and rounded corners.
+- **Responsive Sidebar**: Auto-collapsing sidebar that switches to icon-only mode.
 
-## ✨ 核心特性 (Features)
+### 🛠️ Functionality
+- **Multi-Search**: Switch between Google, Baidu, and Bing with dropdown memory.
+- **Drag & Drop Sorting**: Reorder sidebar categories freely, synced to DB.
+- **Privacy Vault**: Hidden "Secret Links" revealed only in Admin Mode.
+- **Pin to Home**: Pin your favorite links to the main dashboard.
+- **Batch Import**: Import bookmarks via Excel (`.xlsx`).
 
-### 🎨 极致 UI/UX 设计
-- **三栏式看板**：精心设计的仪表盘布局，分别展示时间/日期/天气、个人身份信息及每日灵感语录。
-- **极简美学**：纯净白底风格 (Clean White)，细节打磨的圆角与微阴影，拒绝视觉噪音。
-- **响应式侧边栏**：支持展开/收缩。收缩时自动转换为极简方块模式，文字自动隐藏，保持界面整洁。
+### 🔐 Geek Mode
+- **Invisible Login**: Type your password directly into the search bar to unlock Admin Mode.
+- **Visual Editing**: Edit or delete links directly on the UI.
 
-### 🛠️ 强力功能
-- **多引擎搜索 (Multi-Search)**：搜索框集成 Google、Baidu、Bing 切换功能，带下拉菜单与状态记忆。
-- **拖拽排序 (Drag & Drop)**：基于 `@dnd-kit`，侧边栏分类支持自由拖拽排序，顺序自动持久化保存到 MongoDB。
-- **隐私保险箱**：支持设置 **"isSecret" (私密链接)**，只有在管理员模式解锁后才会显示。
-- **置顶功能 (Pin)**：支持将常用链接 **"Pin"** 到首页 (Home)，普通分类页则显示该分类下所有链接。
-- **批量导入**：内置 Excel (`.xlsx`) 解析器，支持一次性批量导入几百条书签数据。
+## 🛠️ Tech Stack
 
-### 🔐 极客风管理员模式
-- **无感登录**：没有显眼的登录按钮。在搜索框输入预设的 `管理员密码` 并回车，即可解锁“上帝模式”。
-- **可视化管理**：解锁后，卡片上会出现编辑/删除按钮，支持直接在 UI 上修改内容。
+- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/) (with Mongoose ORM)
+- **Auth**: JWT (Custom Implementation)
+- **Utils**: `@dnd-kit` (Sorting), `xlsx` (Import)
 
-## 🛠️ 技术栈 (Tech Stack)
+## 🚀 Installation & Deployment
 
-- **前端**: [Next.js 14 (App Router)](https://nextjs.org/)
-- **样式**: [Tailwind CSS](https://tailwindcss.com/)
-- **数据库**: [MongoDB](https://www.mongodb.com/) (配合 Mongoose ORM)
-- **图标**: Heroicons / SVG
-- **核心库**: 
-  - `@dnd-kit/core`: 现代化的拖拽排序库
-  - `xlsx`: Excel 文件解析
-  - `axios`: HTTP 请求管理
-  - `jsonwebtoken`: 用户鉴权
+### 0. Database Setup
+Before running the project, you need a MongoDB database.
+* **Option A: Zeabur (Recommended)**: Create a MongoDB service in Zeabur and copy the connection string.
+* **Option B: MongoDB Atlas / Local**: Use a standard connection string.
 
-## 🚀 快速开始 (Getting Started)
+### 1. Local Development
 
-### 1. 环境准备
-确保你的本地环境已安装：
-- Node.js (v18 或更高版本)
-- MongoDB (本地服务或 MongoDB Atlas 云服务)
-
-### 2. 克隆项目
 ```bash
-git clone [https://github.com/your-username/aura-startpage.git](https://github.com/your-username/aura-startpage.git)
-cd aura-startpage
+# 1. Clone repo
+git clone [https://github.com/cimorn/Aurastart.git](https://github.com/cimorn/Aurastart.git)
+cd Aurastart
+
+# 2. Install dependencies
+npm install
+
+# 3. Configure Environment Variables
+# Create a .env.local file in the root directory
 ````
 
-### 3\. 安装依赖
-
-```bash
-npm install
-```
-
-### 4\. 配置环境变量
-
-在项目根目录下新建一个 `.env.local` 文件，填入以下内容：
+**File: `.env.local`**
 
 ```env
-# MongoDB 连接字符串 (本地或云端)
-MONGODB_URI=mongodb://localhost:27017/aura-startpage
+# Your MongoDB Connection String
+MONGODB_URI=mongodb://user:pass@host:port/db_name
 
-# JWT 加密密钥 (随便写一串复杂的字符)
-JWT_SECRET=your_super_secret_key_here
+# Secret key for JWT (Any random string)
+ADMIN_PASSWORD=your_super_secret_key_here
 ```
 
-### 5\. 运行开发服务器
-
 ```bash
+# 4. Run
 npm run dev
 ```
 
-打开浏览器访问 `http://localhost:3000` 即可看到项目运行。
+Visit `http://localhost:3000`.
 
-## 📂 数据导入说明 (Excel)
+### 2\. Deploy to Zeabur
 
-本项目支持通过 Excel 批量导入书签。请准备一个 `.xlsx` 文件，表头（第一行）必须包含以下英文列名：
+The easiest way to deploy is using Zeabur.
 
-| 列名 (Header) | 说明 | 示例 |
+1.  **Fork** this repository to your GitHub.
+2.  Log in to **Zeabur Dashboard**.
+3.  Create New Project -\> **Deploy New Service** -\> **Git**.
+4.  Select your forked `Aurastart` repo.
+5.  **Important**: Go to the **Variables** tab and add:
+      * `MONGODB_URI`: *(Your MongoDB connection string)*
+      * `JWT_SECRET`: *(Random string)*
+6.  Zeabur will automatically build and deploy.
+
+## 📂 Data Import (Excel)
+
+You can import bookmarks in bulk using an Excel file. The header row must include:
+
+| Column | Description | Example |
 | :--- | :--- | :--- |
-| **title** | 网站标题 (必填) | GitHub |
-| **url** | 链接地址 (必填) | https://github.com |
-| **category** | 分类名称 | 开发工具 |
-| **icon** | 图标 (Emoji 或 图片URL) | 🐙 |
-| **desc** | 描述备注 | 全球最大的代码托管平台 |
-| **isSecret** | 是否私密 (TRUE/FALSE) | FALSE |
-| **isPinned** | 是否置顶到首页 (TRUE/FALSE) | TRUE |
+| **title** | Site Name | GitHub |
+| **url** | Link URL | https://github.com |
+| **category** | Category Name | Tools |
+| **icon** | Emoji or Image URL | 🐙 |
+| **desc** | Description | Code Hosting |
+| **isSecret** | Private Link? (TRUE/FALSE) | FALSE |
+| **isPinned** | Pin to Home? (TRUE/FALSE) | TRUE |
 
-## 📦 部署 (Deployment)
+## 🤝 Contributing
 
-本项目完美支持部署在 **Zeabur** 或 **Vercel**。
+Contributions are welcome\! Please feel free to submit a Pull Request.
 
-### 部署到 Zeabur (推荐)
+## 📄 License
 
-1.  在 GitHub 上 Fork 本仓库。
-2.  登录 Zeabur，新建项目，选择 "Deploy New Service" -\> "Git"。
-3.  选择本仓库。
-4.  在 Zeabur 的 "Variables" 设置中添加 `MONGODB_URI` 和 `JWT_SECRET`。
-5.  等待构建完成，Zeabur 会自动识别 Next.js 并部署。
-
-## 🤝 贡献 (Contributing)
-
-如果你有好的想法，欢迎提交 Pull Request 或 Issue！
-
-1.  Fork 本仓库
-2.  新建分支 (`git checkout -b feature/AmazingFeature`)
-3.  提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4.  推送分支 (`git push origin feature/AmazingFeature`)
-5.  提交 Pull Request
-
-## 📄 版权 (License)
-
-本项目采用 [MIT License](https://www.google.com/search?q=LICENSE) 开源协议。
-
------
+This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.

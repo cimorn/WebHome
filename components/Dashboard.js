@@ -33,7 +33,7 @@ export default function Dashboard({ currentTime, quote }) {
             {/* 头像 */}
             <div className="w-24 h-24 rounded-full p-1 border-2 border-slate-50 shadow-inner mb-3 overflow-hidden">
                  <img 
-                    src="/avatar.png" 
+                    src="/avatar.jpg" 
                     alt="CiMorn" 
                     className="w-full h-full object-cover rounded-full hover:scale-110 transition-transform duration-500" 
                     onError={(e) => { e.target.src = "https://api.dicebear.com/7.x/avataaars/svg?seed=CiMorn"; }}

@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Aurastart",
+  title: "WebHome",
   description: "A Minimalist & Efficient Personal Start Page",
   icons: {
     icon: '/logo.png', 
